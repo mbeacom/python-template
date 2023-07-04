@@ -1,4 +1,6 @@
 """Define the pytest configuration for fixture reuse."""
+from __future__ import annotations
+
 import pytest
 import typer
 
