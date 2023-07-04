@@ -72,4 +72,4 @@ jobs:
 
       - name: Run Security Checks
         shell: bash
-        run: poetry poe safety
+        run: poetry poe security
