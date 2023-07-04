@@ -28,8 +28,6 @@ runs:
       run: |
         export POETRY_HOME=${{github.workspace}}/.poetry
         curl -sSL https://install.python-poetry.org | python3 - --preview
-        python install-poetry.py --preview
-        rm install-poetry.py
 
     - name: Add Poetry to $PATH
       shell: bash

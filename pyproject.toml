@@ -50,7 +50,7 @@ check-docstrings = "pydocstyle -e ."
 check-ruff = "ruff check app"
 check = ["check-isort", "check-black"]
 lint = ["check-docstrings", "check-ruff"]
-fix = ["isort", "black"]
+fix = ["isort", "black", "ruff"]
 test = "pytest --cov=app --cov-report=xml --cov-report=term"
 ruff = "ruff check --fix app"
 safety = "safety check"
