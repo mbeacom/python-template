@@ -1,0 +1,90 @@
+[tool.poetry]
+name = "app"
+version = "0.0.0"
+description = "This is an app"
+authors = ["Mark Beacom <m@beacom.dev>"]
+readme = "README.md"
+packages = [{include = "app"}]
+license = "MIT"
+keywords = ["app", "cli"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    # "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+]
+include = [
+    "README.md",
+    "LICENSE",
+]
+
+[tool.poetry.scripts]
+app = "app.cli:app"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+# Styling and linting Configurations
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.poe.tasks]
+isort = "isort --profile=black ."
+black = "black ."
+check-black = {cmd = "black . --check --diff", help = "Validate styling with black"}
+check-isort = {cmd = "isort --check --profile=black .", help = "Validate import ordering with isort"}
+check-docstrings = "pydocstyle -e ."
+check-ruff = "ruff check app"
+check = ["check-isort", "check-black"]
+lint = ["check-docstrings", "check-ruff"]
+fix = ["isort", "black"]
+test = "pytest --cov=app --cov-report=xml --cov-report=term"
+ruff = "ruff check --fix app"
+safety = "safety check"
+bandit = "bandit -r app"
+security = ["safety", "bandit"]
+# requires poethepoet outside of poetry.
+install = "poetry install"
+build = "poetry build"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = {extras = ["all"], version = "^0.9.0"}
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+coverage = "^7.2.7"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = {extras = ["toml"], version = "^5.12.0"}
+black = "^23.3.0"
+pydocstyle = "^6.3.0"
+mypy = "^1.4.1"
+debugpy = "^1.6.7"
+ruff = "^0.0.276"
+
+
+[tool.poetry.group.security.dependencies]
+safety = "^2.3.5"
+bandit = {extras = ["toml"], version = "^1.7.5"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
