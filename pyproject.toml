@@ -47,14 +47,14 @@ black = "black ."
 check-black = {cmd = "black . --check --diff", help = "Validate styling with black"}
 check-isort = {cmd = "isort --check --profile=black .", help = "Validate import ordering with isort"}
 check-docstrings = "pydocstyle -e ."
-check-ruff = "ruff check app"
+check-ruff = "ruff check python_template"
 check = ["check-isort", "check-black"]
 lint = ["check-docstrings", "check-ruff"]
 fix = ["isort", "black", "ruff"]
-test = "pytest --cov=app --cov-report=xml --cov-report=term"
-ruff = "ruff check --fix app"
+test = "pytest --cov=python_template --cov-report=xml --cov-report=term"
+ruff = "ruff check --fix python_template"
 safety = "safety check"
-bandit = "bandit -r app"
+bandit = "bandit -r python_template"
 security = ["safety", "bandit"]
 # requires poethepoet outside of poetry.
 install = "poetry install"
