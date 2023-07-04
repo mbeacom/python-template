@@ -45,7 +45,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Dependencies
-        uses: './.github/actions/dep-setup'
+        uses: './.github/actions/deps'
         with:
           python-version: '${{ matrix.version }}'
 
