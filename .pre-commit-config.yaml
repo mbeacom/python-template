@@ -38,3 +38,9 @@ repos:
     hooks:
       - id: isort
         name: isort
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: 9f69b173ce0f0aee69b40a82938f8385e39a1b26  # frozen: v0.0.276
+    hooks:
+      - id: ruff
