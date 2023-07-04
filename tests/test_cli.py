@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typer.testing import CliRunner
 
-from app.cli import app
+from python_template.cli import app
 
 runner = CliRunner()
 

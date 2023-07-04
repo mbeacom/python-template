@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "app"
 version = "0.0.0"
-description = "This is an app"
+description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
-packages = [{include = "app"}]
+packages = [{include = "python_template"}]
 license = "MIT"
-keywords = ["app", "cli"]
+keywords = ["app", "cli", "python", "template"]
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -23,7 +23,7 @@ include = [
 ]
 
 [tool.poetry.scripts]
-app = "app.cli:app"
+python-template = "python_template.cli:app"
 
 [tool.bandit]
 exclude_dirs = ["tests"]
