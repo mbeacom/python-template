@@ -12,7 +12,7 @@ def test_entry_version_arg() -> None:
     """Test the entry method with version argument."""
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "app version" in result.stdout
+    assert "python-template version" in result.stdout
 
 
 def test_entry_no_arg() -> None:
