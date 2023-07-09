@@ -5,5 +5,6 @@ Attributes
     __version__: The version of the this module.
 
 """
+from __future__ import annotations
 
 __version__: str = "0.0.0"

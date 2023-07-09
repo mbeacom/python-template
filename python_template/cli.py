@@ -1,6 +1,8 @@
 """Define the CLI related functions and classes."""
 from __future__ import annotations
 
+from typing import Optional
+
 import typer
 
 from python_template import __version__
@@ -17,8 +19,8 @@ def version_callback(value: bool) -> None:  # noqa: FBT001
 
 @app.command()
 def main(
-    version: bool
-    | None = typer.Option(  # noqa: B008
+    # UP007 ignored here due to: https://github.com/tiangolo/typer/pull/522
+    version: Optional[bool] = typer.Option(  # noqa: B008, UP007
         None,
         "--version",
         callback=version_callback,
