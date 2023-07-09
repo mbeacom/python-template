@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "app"
+name = "python-template-x"
 version = "0.0.0"
 description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
@@ -38,19 +38,108 @@ line-length = 120
 target-version = ["py311"]
 
 [tool.ruff]
+# Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = [
+    "E", # pycodestyle errors
+    "F", # pyflakes
+    "B", # bugbear
+    "W", # pycodestyle warnings
+    "C90", # McCabe complexity
+    "I", # isort
+    "N", # pep8-naming
+    "D", # pydocstyle
+    "UP", # pyupgrade
+    "ANN", # flake8-annotations
+    "S", # bandit
+    "ASYNC", # flake8-async
+    "BLE", # flake8-blind-except
+    "FBT", # flake8-boolean-trap
+    "A", # flake8-builtins
+    "COM", # flake8-commas
+    "C4", # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "T10", # flake8-debugger
+    "EM", # flake8-errmsg
+    "EXE", # flake8-executable
+    "FA", # flake8-future-annotations
+    "ISC", # flake8-implicit-str-concat
+    "G", # flake8-logging-format
+    "PT", # flake8-pytest-style
+    "Q", # flake8-quotes
+    "RSE", # flake8-raise
+    "RET", # flake8-return
+    "SLF", # flake8-self
+    "SLOT", # flake8-slots
+    "SIM", # flake8-simplify
+    "TCH", # flake8-type-checking
+    "FLY", # flynt
+]
+# Ignore E501 (bugbear line length) by default.
+ignore = [
+    "E501", # line-too-long
+    "D203", # one-blank-line-before-class
+    "D213", # multi-line-summary-second-line - Multi-line docstring summary should start at the second line
+]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# Same as our 120 Black setting.
 line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.11.
 target-version = "py311"
+
+[tool.ruff.per-file-ignores]
+"tests/**/*.py" = [
+    "S101", # Ignore assert statements in tests
+    "ARG", # Ignore unused function args, e.g., fixtures
+    "FBT", # Ignore booleans as positional arguments in tests, e.g., @pytest.mark.parametrize()
+]
 
 [tool.poe.tasks]
 isort = "isort --profile=black ."
 black = "black ."
 check-black = {cmd = "black . --check --diff", help = "Validate styling with black"}
 check-isort = {cmd = "isort --check --profile=black .", help = "Validate import ordering with isort"}
-check-docstrings = "pydocstyle -e ."
+update-precommit-hooks = {cmd = "pre-commit autoupdate --freeze", help = "Update pre-commit hooks and freeze to SHAs"}
+check-precommit-hooks = {cmd = "pre-commit run --all-files", help = "Run pre-commit hooks on all files"}
 check-ruff = "ruff check python_template"
-check = ["check-isort", "check-black"]
-lint = ["check-docstrings", "check-ruff"]
-fix = ["isort", "black", "ruff"]
+check-mypy = "mypy python_template"
+check = ["check-ruff", "check-isort", "check-black", "check-mypy"]
+lint = ["ruff"]
+fix = ["ruff", "isort", "black"]
 test = "pytest --cov=python_template --cov-report=xml --cov-report=term"
 ruff = "ruff check --fix python_template"
 safety = "safety check"
@@ -64,26 +153,27 @@ build = "poetry build"
 python = "^3.8"
 typer = {extras = ["all"], version = "^0.9.0"}
 
-
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.0"
 pytest-cov = "^4.1.0"
 coverage = "^7.2.7"
 
-
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.12.0"}
 black = "^23.3.0"
-pydocstyle = "^6.3.0"
 mypy = "^1.4.1"
 debugpy = "^1.6.7"
 ruff = "^0.0.277"
-
+poethepoet = "^0.20.0"
 
 [tool.poetry.group.security.dependencies]
 safety = "^2.3.5"
 bandit = {extras = ["toml"], version = "^1.7.5"}
 
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.3"
+mkdocs-material = "^9.1.18"
+mkdocstrings = {extras = ["python"], version = "^0.22.0"}
 
 [build-system]
 requires = ["poetry-core"]

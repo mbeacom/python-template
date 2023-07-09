@@ -5,6 +5,10 @@ on:
     tags:
       - '*'
 
+env:
+  # TODO: Update the package name to match the name of your package.
+  PACKAGE_NAME: python_template_x
+
 jobs:
   publish:
     name: Publish Release
@@ -20,8 +24,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Safety Check
-        run: poetry poe safety
+      - name: Run Security Check
+        run: poetry poe security
 
       - name: Get Python Module Version
         run: |
@@ -35,18 +39,17 @@ jobs:
           echo "Python Module Version: $MODULE_VERSION"
           if [[ "$TAG_VERSION" != "$MODULE_VERSION" ]]; then exit 1; fi
 
-      # TODO: Enable this to push to PyPi.
-      # - name: Publish to PyPi
-      #   run: poetry publish --build
-      #   env:
-      #     POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+      # TODO: Update the PyPi token to push to PyPi.
+      - name: Publish to PyPi
+        run: poetry publish --build
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           discussion_category_name: announcements
           generate_release_notes: true
-          # TODO: Update this to push PyPi package files to this release.
-          # files: |
-          #   dist/app-${{env.MODULE_VERSION}}.tar.gz
-          #   dist/app-${{env.MODULE_VERSION}}-py3-none-any.whl
+          files: |
+            dist/${{env.PACKAGE_NAME}}-${{env.MODULE_VERSION}}.tar.gz
+            dist/${{env.PACKAGE_NAME}}-${{env.MODULE_VERSION}}-py3-none-any.whl
