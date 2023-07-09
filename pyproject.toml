@@ -128,6 +128,13 @@ target-version = "py311"
     "FBT", # Ignore booleans as positional arguments in tests, e.g., @pytest.mark.parametrize()
 ]
 
+[tool.coverage.run]
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+    "*/__main__.py",
+]
+
 [tool.poe.tasks]
 isort = "isort --profile=black ."
 black = "black ."
