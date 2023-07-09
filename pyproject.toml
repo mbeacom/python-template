@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-template-x"
-version = "0.0.0"
+version = "0.1.0"
 description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
