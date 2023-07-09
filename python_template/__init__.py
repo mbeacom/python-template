@@ -1,6 +1,7 @@
 """Handle initialization routines for the app module.
 
-Attributes:
+Attributes
+----------
     __version__: The version of the this module.
 
 """
