@@ -7,7 +7,7 @@ on:
 
 env:
   # TODO: Update the package name to match the name of your package.
-  PACKAGE_NAME: python-template-x
+  PACKAGE_NAME: python_template_x
 
 jobs:
   publish:
