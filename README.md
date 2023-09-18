@@ -31,6 +31,5 @@ poetry install
 ### Run tests
 
 ```bash
-poetry poe test
-# or: poetry run poe test
+poetry run poe test
 ```

@@ -14,9 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
       - name: Setup Dependencies
         uses: './.github/actions/deps'
@@ -25,11 +23,11 @@ jobs:
 
       - name: Run Styling Enforcement
         shell: bash
-        run: poetry poe check
+        run: poetry run poe check
 
       - name: Run Style Linting Enforcement
         shell: bash
-        run: poetry poe lint
+        run: poetry run poe lint
 
   unit-tests:
     name: Run Unit Tests
@@ -40,9 +38,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
       - name: Setup Dependencies
         uses: './.github/actions/deps'
@@ -51,7 +47,7 @@ jobs:
 
       - name: Run Tests
         shell: bash
-        run: poetry poe test
+        run: poetry run poe test
 
       - name: Codecov
         uses: codecov/codecov-action@v3
@@ -61,9 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
       - name: Setup Dependencies
         uses: './.github/actions/deps'
@@ -72,4 +66,4 @@ jobs:
 
       - name: Run Security Checks
         shell: bash
-        run: poetry poe security
+        run: poetry run poe security
