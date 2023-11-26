@@ -1,11 +1,11 @@
 ---
 
 fail_fast: false
-minimum_pre_commit_version: "3.0.0"
+minimum_pre_commit_version: "3.5.0"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: f71fa2c1f9cf5cb705f73dffe4b21f7c61470ba9  # frozen: v4.4.0
+    rev: c4a0b883114b00d8d76b479c820ce7950211c99b  # frozen: v4.5.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -29,13 +29,13 @@ repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: 6fcbf19c7cf351a8dc3517a0fed3ebfa05610de2  # frozen: v0.0.290
+    rev: 75d1925b523dd109cc200d1b29142ff36ec785ad  # frozen: v0.1.6
     hooks:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
 
   - repo: https://github.com/psf/black
-    rev: e87737140f32d3cd7c44ede75f02dcd58e55820e  # frozen: 23.9.1
+    rev: 2a1c67e0b2f81df602ec1f6e7aeb030b9709dc7c  # frozen: 23.11.0
     hooks:
       - id: black
         language_version: python3.11
