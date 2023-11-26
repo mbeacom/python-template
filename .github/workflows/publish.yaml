@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -25,7 +25,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run Security Check
-        run: poetry poe security
+        run: poetry run poe security
 
       - name: Get Python Module Version
         run: |

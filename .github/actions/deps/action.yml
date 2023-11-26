@@ -33,10 +33,6 @@ runs:
       shell: bash
       run: echo "${{github.workspace}}/.poetry/bin" >> $GITHUB_PATH
 
-    - name: Add poethepoet plugin
-      shell: bash
-      run: poetry self add 'poethepoet[poetry_plugin]'
-
     - name: Poetry Version
       shell: bash
       run: poetry --version
