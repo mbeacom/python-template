@@ -33,3 +33,20 @@ poetry install
 ```bash
 poetry run poe test
 ```
+
+## GitHub Actions Setup
+
+### Validation Workflow
+
+#### CodeCov.io
+
+The workflow is automatically setup to pass along coverage reports to CodeCov.io.
+In order for this to work correctly, you must set the `CODECOV_TOKEN` secret in your repository settings or disable the routine in the `.github/workflows/validate.yaml` file.
+
+### Publishing Workflow
+
+Ensure you have Discussions enabled in your repository settings or disable the discussions post attribute in the `.github/workflows/publish.yaml` file.
+
+#### PyPi
+
+The workflow is automatically setup to publish to PyPi. In order for this to work correctly, you must set the `POETRY_PYPI_TOKEN_PYPI` secret in your repository settings or disable the routine in the `.github/workflows/publish.yaml` file.
