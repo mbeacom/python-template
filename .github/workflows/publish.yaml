@@ -15,17 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Run Security Check
-        run: poetry poe security
+        run: poetry run poe security
 
       - name: Get Python Module Version
         run: |

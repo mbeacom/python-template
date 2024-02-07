@@ -14,7 +14,8 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    # "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.12",
+    # "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
 ]
 include = [
@@ -35,9 +36,14 @@ line_length = 120
 
 [tool.black]
 line-length = 120
-target-version = ["py311"]
+target-version = ["py312"]
 
 [tool.ruff]
+# Assume Python 3.12.
+target-version = "py312"
+# Same as our 120 Black setting.
+line-length = 120
+[tool.ruff.lint]
 # Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
 # McCabe complexity (`C901`) by default.
@@ -82,11 +88,9 @@ ignore = [
     "D203", # one-blank-line-before-class
     "D213", # multi-line-summary-second-line - Multi-line docstring summary should start at the second line
 ]
-
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
-
 # Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
@@ -111,17 +115,9 @@ exclude = [
     "node_modules",
     "venv",
 ]
-
-# Same as our 120 Black setting.
-line-length = 120
-
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-
-# Assume Python 3.11.
-target-version = "py311"
-
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
     "S101", # Ignore assert statements in tests
     "ARG", # Ignore unused function args, e.g., fixtures
@@ -155,32 +151,40 @@ security = ["safety", "bandit"]
 # requires poethepoet outside of poetry.
 install = "poetry install"
 build = "poetry build"
+poetry-update-core = "poetry add 'typer[all]@latest'"
+poetry-update-dev = "poetry add --group dev 'isort[toml]@latest' black@latest mypy@latest debugpy@latest ruff@latest poethepoet@latest"
+poetry-update-test = "poetry add --group test pytest@latest pytest-cov@latest coverage@latest"
+poetry-update-security = "poetry add --group security safety@latest 'bandit[toml]@latest'"
+poetry-update-docs = "poetry add --group docs mkdocs@latest mkdocs-material@latest 'mkdocstrings[python]@latest'"
+standard-update = "poetry self update && poetry update"
+update = ["poetry-update-core", "poetry-update-dev", "poetry-update-test", "poetry-update-security", "poetry-update-docs"]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = {extras = ["all"], version = "^0.9.0"}
 
 [tool.poetry.group.test.dependencies]
-pytest = "^7.4.0"
+pytest = "^8.0.0"
 pytest-cov = "^4.1.0"
-coverage = "^7.2.7"
+coverage = "^7.4.1"
 
 [tool.poetry.group.dev.dependencies]
-isort = {extras = ["toml"], version = "^5.12.0"}
-black = "^23.3.0"
-mypy = "^1.4.1"
-debugpy = "^1.6.7"
-ruff = "^0.0.277"
-poethepoet = "^0.20.0"
+isort = {extras = ["toml"], version = "^5.13.2"}
+black = "^24.1.1"
+mypy = "^1.8.0"
+debugpy = "^1.8.0"
+ruff = "^0.2.1"
+poethepoet = "^0.24.4"
 
 [tool.poetry.group.security.dependencies]
-safety = "^2.3.5"
-bandit = {extras = ["toml"], version = "^1.7.5"}
+safety = "^3.0.1"
+bandit = {extras = ["toml"], version = "^1.7.7"}
 
 [tool.poetry.group.docs.dependencies]
-mkdocs = "^1.4.3"
-mkdocs-material = "^9.1.18"
-mkdocstrings = {extras = ["python"], version = "^0.22.0"}
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.7"
+mkdocstrings = {extras = ["python"], version = "^0.24.0"}
 
 [build-system]
 requires = ["poetry-core"]

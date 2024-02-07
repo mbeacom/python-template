@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Install MDL
         run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.12.0\'' > Gemfile
       - uses: ruby/setup-ruby@v1
@@ -28,5 +28,5 @@ jobs:
           ruby-version: '3.0' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Install Pre-commit dependencies
-        run: poetry poe install
+        run: poetry run poe install
       - uses: pre-commit/action@v3.0.0
