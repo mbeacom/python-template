@@ -10,13 +10,13 @@ runs:
   using: "composite"
   steps:
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '${{ inputs.python-version }}'
 
     - name: Cache Poetry
       id: cache-poetry
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{github.workspace}}/.poetry
         key: poetry-self-${{ hashFiles('.github/workflows/*.yml') }}
@@ -43,7 +43,7 @@ runs:
 
     - name: Cache Dependencies
       id: cache-deps
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{github.workspace}}/.venv
         key: poetry-deps-${{ hashFiles('**/poetry.lock') }}
@@ -53,5 +53,6 @@ runs:
       if: steps.cache-deps.cache-hit != 'true'
       shell: bash
       run: |
+        poetry env use ${{ inputs.python-version }}
         poetry config virtualenvs.in-project true
         poetry install --no-interaction

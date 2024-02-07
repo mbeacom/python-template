@@ -1,4 +1,5 @@
 """Test the functionality of the CLI module."""
+
 from __future__ import annotations
 
 from typer.testing import CliRunner

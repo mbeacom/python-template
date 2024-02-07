@@ -15,11 +15,10 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Run Styling Enforcement
         shell: bash
@@ -33,13 +32,12 @@ jobs:
     name: Run Unit Tests
     strategy:
       matrix:
-        version: ['3.8', '3.9', '3.10', '3.11']
+        version: ['3.8', '3.9', '3.10', '3.11', '3.12']
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
@@ -50,7 +48,9 @@ jobs:
         run: poetry run poe test
 
       - name: Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   security:
     name: Run Security Checks
@@ -58,11 +58,10 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Run Security Checks
         shell: bash
