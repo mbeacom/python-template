@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-template-x"
-version = "0.2.0"
+version = "0.2.1"
 description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
@@ -165,16 +165,16 @@ python = "^3.8"
 typer = {extras = ["all"], version = "^0.9.0"}
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.0.0"
+pytest = "^8.0.1"
 pytest-cov = "^4.1.0"
-coverage = "^7.4.1"
+coverage = "^7.4.3"
 
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.13.2"}
-black = "^24.1.1"
+black = "^24.2.0"
 mypy = "^1.8.0"
-debugpy = "^1.8.0"
-ruff = "^0.2.1"
+debugpy = "^1.8.1"
+ruff = "^0.2.2"
 poethepoet = "^0.24.4"
 
 [tool.poetry.group.security.dependencies]
