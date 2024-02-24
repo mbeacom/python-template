@@ -183,7 +183,7 @@ bandit = {extras = ["toml"], version = "^1.7.7"}
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
-mkdocs-material = "^9.5.7"
+mkdocs-material = "^9.5.10"
 mkdocstrings = {extras = ["python"], version = "^0.24.0"}
 
 [build-system]
