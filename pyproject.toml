@@ -165,7 +165,7 @@ python = "^3.8"
 typer = {extras = ["all"], version = "^0.9.0"}
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.0.1"
+pytest = "^8.0.2"
 pytest-cov = "^4.1.0"
 coverage = "^7.4.3"
 
@@ -174,8 +174,8 @@ isort = {extras = ["toml"], version = "^5.13.2"}
 black = "^24.2.0"
 mypy = "^1.8.0"
 debugpy = "^1.8.1"
-ruff = ">=0.2.2,<0.4.0"
-poethepoet = ">=0.24.4,<0.26.0"
+ruff = "^0.3.1"
+poethepoet = "^0.25.0"
 
 [tool.poetry.group.security.dependencies]
 safety = "^3.0.1"
@@ -183,8 +183,8 @@ bandit = {extras = ["toml"], version = "^1.7.7"}
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
-mkdocs-material = "^9.5.10"
-mkdocstrings = {extras = ["python"], version = "^0.24.0"}
+mkdocs-material = "^9.5.13"
+mkdocstrings = {extras = ["python"], version = "^0.24.1"}
 
 [build-system]
 requires = ["poetry-core"]
