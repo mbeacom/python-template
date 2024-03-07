@@ -175,7 +175,7 @@ black = "^24.2.0"
 mypy = "^1.8.0"
 debugpy = "^1.8.1"
 ruff = "^0.2.2"
-poethepoet = "^0.24.4"
+poethepoet = ">=0.24.4,<0.26.0"
 
 [tool.poetry.group.security.dependencies]
 safety = "^3.0.1"
