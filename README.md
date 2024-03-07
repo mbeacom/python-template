@@ -4,6 +4,7 @@
 [![Pre-Commit Checks Workflow](https://github.com/mbeacom/python-template/actions/workflows/pre-commit.yaml/badge.svg?branch=main&event=push)](https://github.com/mbeacom/python-template/actions/workflows/pre-commit.yaml)
 [![Coverage Status](https://codecov.io/github/mbeacom/python-template/coverage.svg?branch=main)](https://codecov.io/github/mbeacom/python-template?branch=main)
 [![PyPi](https://img.shields.io/pypi/v/python-template-x)](https://pypi.org/project/python-template-x/)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mbeacom/python-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mbeacom/python-template)
 
 This project is an opinionated python template.
 
