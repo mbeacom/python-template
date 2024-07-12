@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-template-x"
-version = "0.2.3"
+version = "0.3.0"
 description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
@@ -10,7 +10,6 @@ keywords = ["app", "cli", "python", "template"]
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -161,7 +160,7 @@ update = ["poetry-update-core", "poetry-update-dev", "poetry-update-test", "poet
 
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 pip = ">= 24.0"
 typer = {extras = ["all"], version = "^0.12.3"}
 
