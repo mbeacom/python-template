@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
           python-version: '3.11'
       - name: Install MDL
         run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.12.0\'' > Gemfile
-      - uses: ruby/setup-ruby@d4526a55538b775af234ba4af27118ed6f8f6677  # v1.172.0
+      - uses: ruby/setup-ruby@161cd54b698f1fb3ea539faab2e036d409550e3c  # v1.187.0
         with:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
