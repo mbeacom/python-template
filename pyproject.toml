@@ -145,7 +145,7 @@ lint = ["ruff"]
 fix = ["ruff", "isort", "black"]
 test = "pytest --cov=python_template --cov-report=xml --cov-report=term"
 ruff = "ruff check --fix python_template"
-safety = "safety check"
+safety = "safety check --ignore 70612" # 70612 ignores the jinja2 CVE used by mkdocs
 bandit = "bandit -r python_template"
 security = ["safety", "bandit"]
 # requires poethepoet outside of poetry.
@@ -162,6 +162,7 @@ update = ["poetry-update-core", "poetry-update-dev", "poetry-update-test", "poet
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pip = ">= 24.0"
 typer = {extras = ["all"], version = "^0.12.3"}
 
 [tool.poetry.group.test.dependencies]
