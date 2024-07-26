@@ -165,16 +165,16 @@ pip = ">= 24.0"
 typer = {extras = ["all"], version = "^0.12.3"}
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.2.2"
+pytest = "^8.3.2"
 pytest-cov = "^5.0.0"
 coverage = "^7.6.0"
 
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.13.2"}
 black = "^24.4.2"
-mypy = "^1.10.1"
+mypy = "^1.11.0"
 debugpy = "^1.8.2"
-ruff = "^0.5.1"
+ruff = "^0.5.5"
 poethepoet = "^0.27.0"
 
 [tool.poetry.group.security.dependencies]
@@ -183,8 +183,8 @@ bandit = {extras = ["toml"], version = "^1.7.9"}
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.6.0"
-mkdocs-material = "^9.5.28"
-mkdocstrings = {extras = ["python"], version = "^0.25.1"}
+mkdocs-material = "^9.5.30"
+mkdocstrings = {extras = ["python"], version = "^0.25.2"}
 
 [build-system]
 requires = ["poetry-core"]
