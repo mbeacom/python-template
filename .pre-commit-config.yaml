@@ -1,7 +1,7 @@
 ---
 
 fail_fast: false
-minimum_pre_commit_version: "3.5.0"
+minimum_pre_commit_version: "3.7.0"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -29,7 +29,7 @@ repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: f6793c73d53e659efecf3b3c38d122fb6a2a969f  # frozen: v0.5.1
+    rev: 1ee2e387938ec90ec10a64f85fc0b4be527ade6a  # frozen: v0.5.5
     hooks:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
