@@ -29,13 +29,13 @@ repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: 1ee2e387938ec90ec10a64f85fc0b4be527ade6a  # frozen: v0.5.5
+    rev: ac97362543353002a47d6cae8918b25444d102df  # frozen: v0.5.7
     hooks:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
 
   - repo: https://github.com/psf/black
-    rev: 3702ba224ecffbcec30af640c149f231d90aebdb  # frozen: 24.4.2
+    rev: b965c2a5026f8ba399283ba3e01898b012853c79  # frozen: 24.8.0
     hooks:
       - id: black
         language_version: python3.11
