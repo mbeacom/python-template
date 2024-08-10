@@ -9,4 +9,4 @@ Attributes
 
 from __future__ import annotations
 
-__version__: str = "0.3.0"
+__version__: str = "0.3.1"
