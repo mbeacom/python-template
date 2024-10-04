@@ -174,7 +174,7 @@ isort = {extras = ["toml"], version = "^5.13.2"}
 black = "^24.8.0"
 mypy = "^1.11.1"
 debugpy = "^1.8.5"
-ruff = "^0.5.7"
+ruff = ">=0.5.7,<0.7.0"
 poethepoet = "^0.27.0"
 
 [tool.poetry.group.security.dependencies]
