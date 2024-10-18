@@ -6,7 +6,7 @@ import pytest
 import typer
 
 
-@pytest.fixture()
+@pytest.fixture
 def app() -> typer.Typer:
     """Define the Typer CLI fixture."""
     return typer.Typer()

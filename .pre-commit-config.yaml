@@ -1,7 +1,7 @@
 ---
 
 fail_fast: false
-minimum_pre_commit_version: "3.7.0"
+minimum_pre_commit_version: "4.0.1"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -38,10 +38,10 @@ repos:
     rev: 1b2427a2b785cc4aac97c19bb4b9a0de063f9547  # frozen: 24.10.0
     hooks:
       - id: black
-        language_version: python3.11
+        language_version: python3.12
 
   - repo: https://github.com/pycqa/isort
-    rev: c235f5e450b4b84e58d114ed4c589cbf454175a3  # frozen: 5.13.2
+    rev: 5.13.2
     hooks:
       - id: isort
         name: isort
