@@ -18,7 +18,7 @@ jobs:
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       - name: Run Styling Enforcement
         shell: bash
@@ -61,7 +61,7 @@ jobs:
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       - name: Run Security Checks
         shell: bash

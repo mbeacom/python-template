@@ -18,7 +18,7 @@ jobs:
       - name: Setup Dependencies
         uses: './.github/actions/deps'
         with:
-          python-version: '3.11'
+          python-version: '3.13'
       - name: Install MDL
         run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.13.0\'' > Gemfile
       - uses: ruby/setup-ruby@161cd54b698f1fb3ea539faab2e036d409550e3c  # v1.187.0
