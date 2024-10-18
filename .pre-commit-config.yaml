@@ -38,7 +38,7 @@ repos:
     rev: 1b2427a2b785cc4aac97c19bb4b9a0de063f9547  # frozen: 24.10.0
     hooks:
       - id: black
-        language_version: python3.12
+        language_version: python3.13
 
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2

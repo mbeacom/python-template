@@ -35,11 +35,11 @@ line_length = 120
 
 [tool.black]
 line-length = 120
-target-version = ["py312"]
+target-version = ["py313"]
 
 [tool.ruff]
-# Assume Python 3.12.
-target-version = "py312"
+# Assume Python 3.13.
+target-version = "py313"
 # Same as our 120 Black setting.
 line-length = 120
 [tool.ruff.lint]
