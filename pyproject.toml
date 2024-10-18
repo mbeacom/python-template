@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-template-x"
-version = "0.3.1"
+version = "0.4.0"
 description = "This is a python template."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    # "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
 ]
 include = [
@@ -35,11 +35,11 @@ line_length = 120
 
 [tool.black]
 line-length = 120
-target-version = ["py312"]
+target-version = ["py313"]
 
 [tool.ruff]
-# Assume Python 3.12.
-target-version = "py312"
+# Assume Python 3.13.
+target-version = "py313"
 # Same as our 120 Black setting.
 line-length = 120
 [tool.ruff.lint]
@@ -162,29 +162,29 @@ update = ["poetry-update-core", "poetry-update-dev", "poetry-update-test", "poet
 [tool.poetry.dependencies]
 python = "^3.9"
 pip = ">= 24.0"
-typer = {extras = ["all"], version = "^0.12.3"}
+typer = {extras = ["all"], version = "^0.12.5"}
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.3.2"
+pytest = "^8.3.3"
 pytest-cov = "^5.0.0"
-coverage = "^7.6.1"
+coverage = "^7.6.3"
 
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.13.2"}
-black = "^24.8.0"
-mypy = "^1.11.1"
-debugpy = "^1.8.5"
-ruff = "^0.5.7"
-poethepoet = "^0.27.0"
+black = "^24.10.0"
+mypy = "^1.12.0"
+debugpy = "^1.8.7"
+ruff = "^0.7.0"
+poethepoet = "^0.29.0"
 
 [tool.poetry.group.security.dependencies]
-safety = "^3.2.5"
-bandit = {extras = ["toml"], version = "^1.7.9"}
+safety = "^3.2.8"
+bandit = {extras = ["toml"], version = "^1.7.10"}
 
 [tool.poetry.group.docs.dependencies]
-mkdocs = "^1.6.0"
-mkdocs-material = "^9.5.31"
-mkdocstrings = {extras = ["python"], version = "^0.25.2"}
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.41"
+mkdocstrings = {extras = ["python"], version = "^0.26.2"}
 
 [build-system]
 requires = ["poetry-core"]
