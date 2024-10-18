@@ -47,7 +47,6 @@ repos:
         name: isort
 
   - repo: https://github.com/markdownlint/markdownlint
-    # Ruff version.
     rev: 5a6cc38e9dd10830df11fa5f6a5f44cfe83df389  # frozen: v0.12.0
     hooks:
       - id: markdownlint

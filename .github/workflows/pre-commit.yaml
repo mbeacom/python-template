@@ -21,9 +21,9 @@ jobs:
           python-version: '3.13'
       - name: Install MDL
         run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.13.0\'' > Gemfile
-      - uses: ruby/setup-ruby@161cd54b698f1fb3ea539faab2e036d409550e3c  # v1.187.0
+      - uses: ruby/setup-ruby@7bae1d00b5db9166f4f0fc47985a3a5702cb58f0 # v1.197.0
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
+          ruby-version: '3.3' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Install Pre-commit dependencies
         run: poetry run poe install
