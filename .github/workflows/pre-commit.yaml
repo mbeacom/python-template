@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install MDL
-        run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.12.0\'' > Gemfile
+        run: echo $'source \'https://rubygems.org\'\ngem \'mdl\', \'~> 0.13.0\'' > Gemfile
       - uses: ruby/setup-ruby@161cd54b698f1fb3ea539faab2e036d409550e3c  # v1.187.0
         with:
           ruby-version: '3.2' # Not needed with a .ruby-version file
