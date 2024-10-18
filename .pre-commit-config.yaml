@@ -5,7 +5,7 @@ minimum_pre_commit_version: "3.7.0"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 2c9f875913ee60ca25ce70243dc24d5b6415598c  # frozen: v4.6.0
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -20,7 +20,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 691f465b4bac758ea1d6dfa9b57d3881a12954fd  # frozen: 1.7.9
+    rev: 36fd65054fc8864b4037d0918904f9331512feb5  # frozen: 1.7.10
     hooks:
       - id: bandit
         description: 'Bandit is a tool for finding common security issues in Python code'
@@ -29,13 +29,13 @@ repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: ac97362543353002a47d6cae8918b25444d102df  # frozen: v0.5.7
+    rev: 8983acb92ee4b01924893632cf90af926fa608f0  # frozen: v0.7.0
     hooks:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
 
   - repo: https://github.com/psf/black
-    rev: b965c2a5026f8ba399283ba3e01898b012853c79  # frozen: 24.8.0
+    rev: 1b2427a2b785cc4aac97c19bb4b9a0de063f9547  # frozen: 24.10.0
     hooks:
       - id: black
         language_version: python3.11
